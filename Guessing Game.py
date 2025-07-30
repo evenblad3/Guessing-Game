@@ -1,15 +1,18 @@
 from random import randint
-answer = randint(1,10)
-
+MAX = 10
 while True:
-        try:
-                guess = int(input ("guess a number from 1 to 10: "))
-                if  (guess) > 0 and int (guess) < 11:
-                        if (guess) == answer:
-                               print("You are genius 😄")
-                               break
-                else:
-                      print("hey bozo 😠,I said 1 to 10 🤣")
-        except Exception as ValueError:
-         print("please enter a number")
-         continue
+    answer = randint(1, MAX)
+    guess = input("Guess a number from 1 to 10: ")
+    if guess.isnumeric():
+        guess = int(guess)
+        if (guess) > 0 and (guess) < 11 and (guess) == answer:
+            print("You are a genius 😄")
+            break
+        elif guess > MAX:
+            print("Hey bozo 😠, I said 1 to 10 🤣")
+        else:
+            print("Wrong guess, it was %d." %(answer))
+    else:
+        print("Please enter a number.")
+        continue
+        
